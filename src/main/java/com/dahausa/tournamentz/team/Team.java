@@ -1,5 +1,8 @@
 package com.dahausa.tournamentz.team;
 
+import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamException;
+import com.dahausa.tournamentz.team.exceptions.InvalidTeamIdException;
+
 import lombok.Getter;
 import lombok.Setter;
 

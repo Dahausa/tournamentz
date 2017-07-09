@@ -2,6 +2,8 @@ package com.dahausa.tournamentz.team;
 
 import java.util.UUID;
 
+import com.dahausa.tournamentz.team.exceptions.InvalidTeamIdException;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 

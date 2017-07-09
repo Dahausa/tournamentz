@@ -1,6 +1,8 @@
-package com.dahausa.tournamentz.team;
+package com.dahausa.tournamentz.team.exceptions;
 
-public class CannotCreateEmailAddressException extends Exception {
+import com.dahausa.tournamentz.exceptions.TournamentzDomainException;
+
+public class CannotCreateEmailAddressException extends TournamentzDomainException {
 
 
 	private static final long serialVersionUID = 1L;

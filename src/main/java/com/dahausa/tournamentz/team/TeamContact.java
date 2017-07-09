@@ -2,6 +2,9 @@ package com.dahausa.tournamentz.team;
 
 import java.util.List;
 
+import com.dahausa.tournamentz.team.exceptions.CannotCreateEmailAddressException;
+import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamContactException;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 

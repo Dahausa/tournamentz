@@ -1,5 +1,7 @@
 package com.dahausa.tournamentz.team;
 
+import com.dahausa.tournamentz.team.exceptions.CannotCreateEmailAddressException;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 

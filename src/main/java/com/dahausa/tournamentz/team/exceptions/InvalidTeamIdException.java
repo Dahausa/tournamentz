@@ -1,6 +1,8 @@
-package com.dahausa.tournamentz.team;
+package com.dahausa.tournamentz.team.exceptions;
 
-public class InvalidTeamIdException extends Exception {
+import com.dahausa.tournamentz.exceptions.TournamentzDomainException;
+
+public class InvalidTeamIdException extends TournamentzDomainException {
 
 
 	private static final long serialVersionUID = 5235856588229040843L;

@@ -3,10 +3,10 @@ package tournamentz;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.dahausa.tournamentz.team.CannotCreateTeamContactException;
-import com.dahausa.tournamentz.team.CannotCreateTeamException;
 import com.dahausa.tournamentz.team.Team;
 import com.dahausa.tournamentz.team.TeamContact;
+import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamContactException;
+import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamException;
 
 public class TeamTest {
 

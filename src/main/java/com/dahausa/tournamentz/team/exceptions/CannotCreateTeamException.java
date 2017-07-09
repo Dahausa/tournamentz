@@ -1,6 +1,8 @@
-package com.dahausa.tournamentz.team;
+package com.dahausa.tournamentz.team.exceptions;
 
-public class CannotCreateTeamException extends Exception {
+import com.dahausa.tournamentz.exceptions.TournamentzDomainException;
+
+public class CannotCreateTeamException extends TournamentzDomainException {
 
 
 	private static final long serialVersionUID = 6884319502581376371L;
