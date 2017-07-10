@@ -1,5 +1,6 @@
 package com.dahausa.tournamentz.team;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import com.dahausa.tournamentz.team.exceptions.InvalidTeamIdException;
@@ -8,7 +9,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @EqualsAndHashCode
-public class TeamId {
+public class TeamId implements Serializable{
+
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Getter
 	private String id;

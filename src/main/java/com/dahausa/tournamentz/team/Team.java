@@ -1,11 +1,14 @@
 package com.dahausa.tournamentz.team;
 
+import javax.persistence.Entity;
+
 import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamException;
 import com.dahausa.tournamentz.team.exceptions.InvalidTeamIdException;
 
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
 public class Team {
 	
 	@Getter

@@ -1,5 +1,8 @@
 package tournamentz;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,6 +24,11 @@ public class TeamTest {
 		Team createdTeam = Team.create(teamName, captain);
 		//Assert
 		Assert.assertEquals(teamName,createdTeam.getName());
+	}
+	
+	@Test
+	public void testStoreTeam(){
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TOURNAMENTZ");
 	}
 
 }
