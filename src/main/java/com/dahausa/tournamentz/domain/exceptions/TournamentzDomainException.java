@@ -1,4 +1,4 @@
-package com.dahausa.tournamentz.exceptions;
+package com.dahausa.tournamentz.domain.exceptions;
 
 /**
  * Base class for all domain exceptions

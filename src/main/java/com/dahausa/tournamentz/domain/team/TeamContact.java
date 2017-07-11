@@ -1,25 +1,31 @@
-package com.dahausa.tournamentz.team;
+package com.dahausa.tournamentz.domain.team;
 
 import java.util.List;
 
-import com.dahausa.tournamentz.team.exceptions.CannotCreateEmailAddressException;
-import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamContactException;
+import org.springframework.data.annotation.Id;
+
+import com.dahausa.tournamentz.domain.team.exceptions.CannotCreateEmailAddressException;
+import com.dahausa.tournamentz.domain.team.exceptions.CannotCreateTeamContactException;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 
 @EqualsAndHashCode(exclude={"team"})
 public class TeamContact {
 	
-	@Getter
+	@Setter @Getter
 	private String name;
+	
 	@Getter
+	@Id
 	private EmailAddress mail;
 	@Getter
 	private List<Team> team;
 	
-	private TeamContact(String name, EmailAddress emailAddress) {
-		this.name = name;
+	protected TeamContact(){}
+	
+	private TeamContact(EmailAddress emailAddress) {
 		this.mail = emailAddress;
 	}
 	
@@ -34,7 +40,9 @@ public class TeamContact {
 			throw new CannotCreateTeamContactException(e);
 		}
 		
-		return new TeamContact(name,mail);
+		TeamContact contact = new TeamContact(mail);
+		contact.setName(name);
+		return contact;
 	}
 	
 

@@ -1,6 +1,8 @@
-package com.dahausa.tournamentz.team;
+package com.dahausa.tournamentz.domain.team;
 
-import com.dahausa.tournamentz.team.exceptions.CannotCreateEmailAddressException;
+import org.springframework.data.annotation.Id;
+
+import com.dahausa.tournamentz.domain.team.exceptions.CannotCreateEmailAddressException;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,6 +11,7 @@ import lombok.Getter;
 public class EmailAddress {
 	
 	@Getter
+	@Id
 	private String mailAddress;
 
 	private EmailAddress(String mailAddress) {

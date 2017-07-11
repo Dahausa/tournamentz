@@ -1,15 +1,13 @@
 package tournamentz;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.dahausa.tournamentz.team.Team;
-import com.dahausa.tournamentz.team.TeamContact;
-import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamContactException;
-import com.dahausa.tournamentz.team.exceptions.CannotCreateTeamException;
+import com.dahausa.tournamentz.domain.team.Team;
+import com.dahausa.tournamentz.domain.team.TeamContact;
+import com.dahausa.tournamentz.domain.team.exceptions.CannotCreateTeamContactException;
+import com.dahausa.tournamentz.domain.team.exceptions.CannotCreateTeamException;
 
 public class TeamTest {
 
@@ -21,14 +19,13 @@ public class TeamTest {
 		TeamContact captain = TeamContact.create("Jörn Hauser", "joernhauser@mailbox.org");
 		
 		//Act
-		Team createdTeam = Team.create(teamName, captain);
+		Team createdTeam = Team.create(teamName);
 		//Assert
 		Assert.assertEquals(teamName,createdTeam.getName());
 	}
 	
 	@Test
 	public void testStoreTeam(){
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("TOURNAMENTZ");
 	}
 
 }

@@ -1,6 +1,6 @@
-package com.dahausa.tournamentz.team.exceptions;
+package com.dahausa.tournamentz.domain.team.exceptions;
 
-import com.dahausa.tournamentz.exceptions.TournamentzDomainException;
+import com.dahausa.tournamentz.domain.exceptions.TournamentzDomainException;
 
 public class CannotCreateTeamContactException extends TournamentzDomainException {
 
