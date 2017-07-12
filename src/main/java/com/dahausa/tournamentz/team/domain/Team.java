@@ -1,9 +1,9 @@
-package com.dahausa.tournamentz.domain.team;
+package com.dahausa.tournamentz.team.domain;
 
 
 import org.springframework.data.annotation.Id;
 
-import com.dahausa.tournamentz.domain.team.exceptions.CannotCreateTeamException;
+import com.dahausa.tournamentz.team.domain.exceptions.CannotCreateTeamException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Getter;
@@ -17,7 +17,7 @@ public class Team {
 	@Getter @Setter
 	String label;
 	@Getter @Setter
-	TeamContact contact;
+	String contact;
 	
 	protected Team(){}
 	

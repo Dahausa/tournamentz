@@ -1,4 +1,4 @@
-package com.dahausa.tournamentz.domain.team.exceptions;
+package com.dahausa.tournamentz.team.domain.exceptions;
 
 import com.dahausa.tournamentz.domain.exceptions.TournamentzDomainException;
 

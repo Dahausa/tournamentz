@@ -1,10 +1,12 @@
 package com.dahausa.tournamentz.ui;
 
+import com.dahausa.tournamentz.team.ui.AddTeamForm;
 import com.vaadin.annotations.Theme;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.spring.annotation.SpringUI;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Notification;
+import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.GridLayout;
+import com.vaadin.ui.Layout;
 import com.vaadin.ui.UI;
 
 @SpringUI
@@ -15,6 +17,13 @@ public class IndexUI extends UI {
 
 	@Override
     protected void init(VaadinRequest request) {
-	    setContent(new Button("Click me", e -> Notification.show("Hello Spring+Vaadin user!")));
+		
+		Layout frame = new GridLayout(1,3);
+		frame.setSizeFull();
+		
+		FormLayout addTeamForm = new AddTeamForm(this);
+		frame.addComponent(addTeamForm);
+		
+	    setContent(frame);
     }
 }

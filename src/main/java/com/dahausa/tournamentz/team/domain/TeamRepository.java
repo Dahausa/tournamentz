@@ -1,4 +1,4 @@
-package com.dahausa.tournamentz.domain.team;
+package com.dahausa.tournamentz.team.domain;
 
 import java.util.List;
 

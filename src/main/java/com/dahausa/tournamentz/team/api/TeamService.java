@@ -1,4 +1,4 @@
-package com.dahausa.tournamentz.api;
+package com.dahausa.tournamentz.team.api;
 
 import java.util.List;
 
@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dahausa.tournamentz.domain.team.Team;
-import com.dahausa.tournamentz.domain.team.TeamRepository;
+import com.dahausa.tournamentz.team.domain.Team;
+import com.dahausa.tournamentz.team.domain.TeamRepository;
 
 @RestController
+@RequestMapping("api")
 public class TeamService {
 	
 	@Autowired
