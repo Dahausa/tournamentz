@@ -1,9 +1,12 @@
 package com.dahausa.tournamentz.team.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dahausa.tournamentz.team.api.TeamService;
-import com.dahausa.tournamentz.team.domain.Team;
+import com.dahausa.tournamentz.team.domain.exceptions.CannotCreateTeamException;
 import com.vaadin.data.Binder;
 import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.spring.annotation.SpringComponent;
@@ -11,8 +14,8 @@ import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
 
 @SpringComponent
 @UIScope
@@ -21,13 +24,12 @@ public class AddTeamForm extends FormLayout {
 	private static final long serialVersionUID = 3782993902233101805L;
 	
 
-	private UI parent;
-	
-	@Autowired
 	private TeamService service;
 	
-	private Binder<Team> binder = new Binder<>(Team.class);
-	private Team team;
+	private Binder<TeamFormDto> binder = new Binder<>(TeamFormDto.class);
+	private TeamFormDto team;
+	
+	private List<TextField> allFields = new ArrayList<>();
 	
 	private TextField teamName = new TextField("Name");
 	private TextField remarks = new TextField("Remarks");
@@ -35,24 +37,35 @@ public class AddTeamForm extends FormLayout {
 	private Button save = new Button("Save");
 	private Button clear = new Button("Clear");
 	
-	public AddTeamForm(UI parent) {
+	@Autowired
+	public AddTeamForm(TeamService service) {
 		
-		this.parent = parent;
+		this.service = service;
 		
 		clear.setClickShortcut(KeyCode.DELETE);
 		save.setClickShortcut(KeyCode.ENTER);
 		
+		allFields.add(teamName);
+		allFields.add(remarks);
+		allFields.add(contact);
+		
 		HorizontalLayout buttons = new HorizontalLayout(save, clear);
 		addComponents(teamName,remarks,contact,buttons);
 		
-		binder.bindInstanceFields(this);
+		binder.bind(teamName, TeamFormDto::getName,TeamFormDto::setName);
+		binder.bind(remarks,TeamFormDto::getRemark,TeamFormDto::setRemark);
+		binder.bind(contact, TeamFormDto::getContact,TeamFormDto::setContact);
+		
+		TeamFormDto team = new TeamFormDto();
+		binder.setBean(team);
+		
 		
 		save.addClickListener(e -> this.save());
 		clear.addClickListener(e -> this.clear());
 		
 	}
 	
-	public void setTeam(Team team) {
+	public void setTeam(TeamFormDto team) {
 	    this.team = team;
 	    binder.setBean(team);
 
@@ -62,12 +75,21 @@ public class AddTeamForm extends FormLayout {
 	
 	private void clear() {
 	    
-	    setVisible(false);
+	    for(TextField field : allFields) {
+	    	field.clear();
+	    }
 	}
 
 	private void save() {
-	    service.addTeam(team);
-	    setVisible(false);
+		this.team = binder.getBean();
+	    try {
+			service.addTeam(team.convertToTeam());
+			Notification.show("Team " + team.getName() +" has been saved!");
+			binder.readBean(null);
+		} catch (CannotCreateTeamException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
