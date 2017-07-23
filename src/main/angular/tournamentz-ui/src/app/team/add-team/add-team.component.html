@@ -1,0 +1,20 @@
+<form>
+	<div>
+		<md-input-container>
+		<input mdInput [(ngModel)]="teamToAdd.name" name="idName" placeholder="team name" />
+		</md-input-container>
+	</div>
+	<div>
+		<md-input-container>
+		<input mdInput [(ngModel)]="teamToAdd.designation" name="longName" placeholder="long name of team" />
+		</md-input-container>
+	</div>
+	<div>
+		<md-input-container>
+		<input mdInput [(ngModel)]="teamToAdd.contact" name="contact" placeholder="team contact" />
+		</md-input-container>
+	</div>
+	<div>
+		<button md-button (click)="saveTeam(teamToAdd)" >Save</button>
+	</div>
+</form>

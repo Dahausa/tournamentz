@@ -1,7 +1,10 @@
 package com.dahausa.tournamentz.team.domain;
 
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import javax.persistence.Id;
 
 import com.dahausa.tournamentz.team.domain.exceptions.CannotCreateTeamException;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,12 +13,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Entity
+@Table(name="TEAMS")
 public class Team {
 	
 	@Getter @Id
 	String name;
 	@Getter @Setter
-	String label;
+	String designation;
 	@Getter @Setter
 	String contact;
 	

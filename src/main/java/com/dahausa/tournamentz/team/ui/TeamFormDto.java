@@ -36,7 +36,7 @@ public class TeamFormDto {
 	public Team convertToTeam() throws CannotCreateTeamException {
 		Team team = Team.create(getName());
 		team.setContact(this.getContact());
-		team.setLabel(this.getRemark());
+		team.setDesignation(this.getRemark());
 		return team;
 	}
 }

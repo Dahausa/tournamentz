@@ -1,4 +1,6 @@
+import { AddTeamComponent } from './add-team/add-team.component';
 import { Component, OnInit } from '@angular/core';
+import { Team } from './team';
 
 @Component({
   selector: 'app-team',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
+  componentTitle = 'Team management';
+
+  team: Team;
+
   constructor() { }
 
   ngOnInit() {
+    this.team = new Team();
   }
 
 }
