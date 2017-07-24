@@ -9,24 +9,13 @@
 
 	<!-- Nav -->
 	<nav id="nav">
-		<ul>
-			<li><a href="#team" class="active">Teams</a></li>
-			<li><a href="#first">Schedule</a></li>
-			<li><a href="#second">Tournament</a></li>
-			<li><a href="#cta">Reports</a></li>
-		</ul>
+		<md-tab-group>
+	  		<md-tab label="Teams & Groups"><app-team></app-team></md-tab>
+	  		<md-tab label="Schedule"><a href="#team">Schedule</a></md-tab>
+	  		<md-tab label="Tournament"><a href="#team">Tournament</a></md-tab>
+	  		<md-tab label="Reports"><a href="#team">Reports</a></md-tab>
+		</md-tab-group>
 	</nav>
-
-	<!-- Main -->
-	<div id="main">
-
-		<!-- First Section -->
-		<section id="team">
-			<app-team></app-team>
-		</section>
-
-
-	</div>
 
 	<!-- Footer -->
 	<footer id="footer">

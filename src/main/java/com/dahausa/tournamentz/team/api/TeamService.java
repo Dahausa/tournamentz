@@ -19,6 +19,7 @@ import com.dahausa.tournamentz.team.domain.TeamRepository;
 @RestController
 
 @RequestMapping("api")
+
 public class TeamService {
 	
 	@Autowired

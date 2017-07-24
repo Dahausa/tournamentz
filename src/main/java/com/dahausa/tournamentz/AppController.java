@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @EnableAutoConfiguration
 @ComponentScan("com.dahausa.tournamentz")
@@ -29,6 +32,18 @@ public class AppController {
                 System.out.println(beanName);
             }
 
+        };
+    }
+    /**
+     * Added to allow CORS requests from remote clients via webrequest
+     */
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/api").allowedOrigins("*");
+            }
         };
     }
 

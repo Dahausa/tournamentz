@@ -19,9 +19,9 @@ export class AddTeamComponent implements OnInit {
   }
 
   saveTeam(team: Team) {
-    console.log('Team saved' + this.teamToAdd.name);
     this.service.saveTeam(this.teamToAdd);
     this.teamToAdd = new Team();
+    console.log('Team saved' + this.teamToAdd.name);
   }
 
 }

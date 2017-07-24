@@ -14,9 +14,8 @@ export class AddTeamService {
 
   saveTeam(teamToSave: Team): Promise<Team> {
     return this.http
-      .put(this.addTeamApiUrl, JSON.stringify(teamToSave), {headers: this.headers})
+      .post(this.addTeamApiUrl, JSON.stringify(teamToSave), {headers: this.headers})
       .toPromise()
-      .then(() => teamToSave)
       .catch(this.handleError);
 
   }
