@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { AddTeamService } from './add-team.service';
+import { AddTeamService } from './team.service';
 
-describe('AddTeamService', () => {
+describe('TeamService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [AddTeamService]

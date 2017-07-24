@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../team';
-import { AddTeamService } from './add-team.service';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-add-team',
-  providers: [AddTeamService],
+  providers: [TeamService],
   templateUrl: './add-team.component.html',
   styleUrls: ['./add-team.component.css']
 })
@@ -12,7 +12,7 @@ export class AddTeamComponent implements OnInit {
 
   teamToAdd: Team;
 
-  constructor(private service: AddTeamService) { }
+  constructor(private service: TeamService) { }
 
   ngOnInit() {
     this.teamToAdd = new Team();

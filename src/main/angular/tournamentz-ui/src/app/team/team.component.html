@@ -1,12 +1,16 @@
-
 <md-tab-group> 
 	<md-tab label="Teams">
-		<app-add-team></app-add-team>
+	<md-grid-list cols="2">
+  	<md-grid-tile>
+   		<app-add-team></app-add-team>
+  	</md-grid-tile>
+  	<md-grid-tile>
+   		<app-list-team></app-list-team>
+  	</md-grid-tile>
+</md-grid-list>
+		
 	</md-tab>
  	<md-tab label="Groups">
 		<a href="#team">Groups</a>
 	</md-tab>
 </md-tab-group>
-
-
-

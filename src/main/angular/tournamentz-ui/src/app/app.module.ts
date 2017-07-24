@@ -8,13 +8,15 @@ import { TournamentzMaterialModule} from './tournamentz-material-module/tourname
 import { AppComponent } from './app.component';
 import { TeamComponent } from './team/team.component';
 import { AddTeamComponent } from './team/add-team/add-team.component';
+import { ListTeamComponent } from './team/list-team/list-team.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TeamComponent,
-    AddTeamComponent
+    AddTeamComponent,
+    ListTeamComponent
   ],
   imports: [
     BrowserModule,

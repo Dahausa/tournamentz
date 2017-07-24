@@ -1,11 +1,14 @@
-import {Team} from '../team';
+import {Team} from './team';
 import {Injectable} from '@angular/core';
 import {Headers, Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+// TODO: Remove Mock
+import { TEAMS } from './TeamMock';
+
 @Injectable()
-export class AddTeamService {
+export class TeamService {
 
   private addTeamApiUrl = 'http://localhost:7070/api/team';
   private headers = new Headers({'Content-Type': 'application/json'});
@@ -18,6 +21,10 @@ export class AddTeamService {
       .toPromise()
       .catch(this.handleError);
 
+  }
+
+  getTeams(): Promise<Team[]> {
+    return Promise.resolve(TEAMS);
   }
 
   private handleError(error: any): Promise<any> {
